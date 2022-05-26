@@ -8,7 +8,6 @@ class PrototypesController < ApplicationController
   end
 
   def show
-    @prototype = Prototype.find(params[:id])
     @comment = Comment.new
     @comments = @prototype.comments
   end
@@ -58,5 +57,10 @@ end
   def contributor_confirmation
     redirect_to root_path unless current_user == @prototype.user
   end
+
+  def set_prototype
+    @prototype = Prototype.find(params[:id])
+  end
+
   
 end
